@@ -178,9 +178,8 @@ def write_readme(narrative, charts):
             f.write(f"![Chart]({chart})\n")
 
 # Main function
-def main():
+def main(file_path):
     initialize_openai()
-    file_path = Path('happiness.csv')
     df = load_dataset(file_path)
 
     # Perform analysis
@@ -200,4 +199,9 @@ def main():
     print("Analysis complete. Results saved")
 
 if __name__ == "__main__":
-    main()
+    import sys
+    if len(sys.argv) != 2:
+        print("Usage: uv run autolysis.py dataset.csv")
+    else:
+        file_path= sys.argv[-1]
+        main(file_path)
