@@ -13,7 +13,7 @@ from sklearn.cluster import KMeans
 from sklearn.linear_model import LinearRegression
 import networkx as nx
 import geopandas as gpd
-from PIL import Images
+from PIL import Image
 # Initialize OpenAI
 
 def initialize_openai():
