@@ -17,11 +17,9 @@ from PIL import Image
 # Initialize OpenAI
 
 def initialize_openai():
-    from google.colab import userdata
-    api_key = userdata.get('API_KEY')
-    openai.api_key = api_key
+    openai.api_key = os.getenv('AIPROXY_TOKEN')
     if not openai.api_key:
-        raise EnvironmentError("API_KEY environment variable not set.")
+        raise EnvironmentError("AIPROXY_TOKEN environment variable not set.")
 
 # Load dataset
 def load_dataset(file_path):
